@@ -2,6 +2,7 @@ import React, {useState} from 'react';
 import './App.css';
 import Box from "./components/Box/Box";
 import Button from "./components/Button/Button";
+import Count from "./components/Count/Count";
 
 interface items {
   hasItem: boolean,
@@ -33,7 +34,6 @@ function App() {
   };
 
   const [items, setItems] = useState(newItemsArr());
-  console.log(items);
 
   const openDiv = (index: number) => {
     const itemsCopy = [...items];
@@ -46,6 +46,28 @@ function App() {
   const resetItems = () => {
     setItems(newItemsArr());
   };
+
+  let count = 24;
+
+  const countOn = () => {
+    for (let i = 0; i < items.length; i++) {
+      const item = items[i];
+      if (item.clicked === true) {
+        if (count !== 0) {
+          count--;
+        } else {
+          alert('Game is over! Push reset to start again!');
+        }
+      }
+      if (item.hasItem === true && item.clicked === true) {
+        if (count !== 0) {
+          alert('You win! Congratulations!');
+        }
+      }
+    }
+    return count;
+  };
+
 
   const itemsEl = items.map((item, index) =>
     <Box
@@ -60,6 +82,7 @@ function App() {
       <div className="mainBlock">
         {itemsEl}
       </div>
+      <Count count={countOn()}/>
       <Button onReset={resetItems}/>
     </div>
   );
