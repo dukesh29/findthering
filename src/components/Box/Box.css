@@ -1,0 +1,28 @@
+.box {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    background: black;
+}
+
+.box-unlock{
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    background: none;
+}
+
+
+.empty{
+    width: 20px;
+    height: 20px;
+    background: url("https://cdn-icons-png.flaticon.com/512/15/15287.png") no-repeat center center;
+    background-size: 100%;
+}
+
+.ring{
+    width: 20px;
+    height: 20px;
+    background: url("https://cdn0.iconfinder.com/data/icons/wedding-and-marriage/128/1-512.png") no-repeat center center;
+    background-size: 100%;
+}
